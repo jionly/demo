@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <title>Document</title>
+    <style type="text/css">
+/*reset-phone-css*/
+blockquote,body,button,ul,ol,dl,dd,fieldset,form,h1,h2,h3,h4,h5,h6,hr,input,legend,p,pre,textarea,th,td{
+    margin:0;
+    padding:0;
+}
+article,aside,dialog,footer,header,hgroup,main,section,nav,figure,menu,details,figcaption, figure,{
+    display:block;
+}
+html{
+    font-size:625%;
+}
+body, button, input, select, textarea {
+    font:.12rem "Microsoft YaHei",Arial,sans-serif;
+}
+body{
+    min-width: 3.2rem;
+    width:100%;
+    max-width: 6.4rem;
+    margin:0 auto;
+    color:#333;
+}
+a{
+    color:#333;
+    text-decoration:none;
+}
+address, cite, dfn, em,i,var{
+    font-style:normal;
+}
+h1,h2,h3,h4,h5,h6{
+    font-size:100%;
+    font-weight:normal;
+}
+fieldset,img,input{
+    border:none;
+}
+img[src=""],img:not([src]){
+    opacity:0;
+    filter:alpha(opacity=0);
+}
+input:-webkit-autofill{-webkit-box-shadow:0 0 0 50px white inset!important;}
+input:focus,select:focus{
+    box-shadow: none;
+    outline:none;
+}
+input[type="button"]{
+    appearance:none;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+}
+table{
+    border-collapse:collapse;
+}
+li{
+    list-style-type:none;
+}
+/*sprite-css*/
+.bn{border:none !important;}
+.box{box-sizing:border-box !important;-webkit-box-sizing:border-box !important;-moz-box-sizing:border-box !important;}
+.center{margin:0 auto;}
+.clearfix:after{clear:both;content:"";display:table;}
+.db{display:block;}
+.dn{display: none;}
+.di{display:inline;}
+.dib{display:inline-block;}
+.fl{float:left;}
+.fr{float:right;}
+.h_auto{height:auto;}
+.h_50{height:50%;}
+.h_100{height:100%;}
+.mb0{margin-bottom:0;}
+.ml0{margin-left:0 !important;}
+.mr0{margin-right:0 !important;}
+.mt0{margin-top:0 !important;}
+.pb0{padding-bottom:0 !important;}
+.pl0{padding-left:0 !important;}
+.pr{position:relative;}
+.tl{text-align:left;}
+.tc{text-align:center;}
+.tr{text-align:right;}
+.vh{visibility:hidden;}
+.vt{vertical-align:top;}
+.w_auto{width:auto;}
+.w_50{width:50%;}
+.w_100{width:100%;}
+.calc{width:95%;margin:.1rem auto;border:.01rem solid #ddd;box-shadow: 0.01rem 0.05rem 0.08rem 0.02rem #BAB9B9;border-radius: .16rem;padding:.15rem;}
+.title{position: relative; margin-bottom: .2rem;color: #383f59;text-align:center;font-size:.15rem;}
+.title:before,.title:after{position: absolute;
+    top: 10px;
+    width: 21%;
+    height: 1px;
+    content: ' ';
+    border-top: 1px solid #E3E3E3;}
+.title:before{left:.28rem;}
+.title:after{right:.28rem;}
+.num_frame {
+    position: relative;
+    height: 65px;
+    border: 6px solid #D2D1D1;
+    border-radius: 4px;
+}
+.num_frame_inner{width: 100%;
+    height: 100%;
+    padding-right: 28px;
+    border-radius: 4px;
+    border-top: 2px solid #3D3C30;
+    border-bottom: 2px solid #6C6B60;
+    border-left: 3px solid #3D3C30;
+    border-right: 3px solid #3D3C30;
+    background-color: #D3D3CB;
+    box-shadow: 0px 1px 5px 1px #ABABA5 inset;}
+.unit{
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+    right: 12px;
+    bottom: 6px;}
+.result{
+    height: 60px;
+    border-radius: 4px;
+    border: 1px solid #e7e7e7;
+    margin-top: -5px;}
+
+.result ul {
+    padding-top: 10px;
+}
+.result ul li {
+    line-height: 20px;
+    padding-left: 25px;
+    text-align:center;
+}
+.result ul li span {
+    margin-right: 30px;
+    color: #666;
+    font-size:.14rem;
+}
+.result ul li span em {
+    font-weight: bold;
+    color: #666;
+}
+.num-window{
+    margin-top:.08rem;
+}
+.num-window div{
+    float:right;
+    width:24px;
+    height:48px;
+    margin:0 1px;
+}
+.num-window div img{
+    width:100%;
+    vertical-align: middle;
+}
+.input{
+    width:100%;
+    background-color: #e8e8e8;
+    border: 0;
+    color: #333;
+    margin: .1rem auto;
+    display: block;
+    line-height: 50px;
+    height:50px;
+    border-radius: 4px;
+    padding-left:5px;
+    font-size:14px;
+}
+.submit{
+    display: block;
+    height: 44px;
+    width: 100%;
+    border-radius: 6px;
+    -webkit-appearance: none;
+    margin-top: 15px;
+    line-height: 44px;
+    text-align: center;
+    font-size: 17px;
+    color: #fff;
+    background-color: #f79c33;
+}
+    </style>
+
+
+<script type="text/javascript">
+var timer=[];
+function change(i){
+    var time=50+i*100;
+    return setInterval(function(){
+        var random=Math.floor(Math.random()*10);
+        $('.num-window div').eq(i).find('img').addClass('dn');
+        $('.num-window div').eq(i).find('img').eq(random).removeClass('dn');
+
+    },time)
+}
+function hide(){
+    return setInterval(function(){
+        if(!$('.num-window div').eq(0).find('img').eq(0).hasClass('dn')){
+            $('.num-window div').eq(0).addClass('dn')
+        }
+        if(!$('.num-window div').eq(1).find('img').eq(0).hasClass('dn')){
+            $('.num-window div').eq(1).addClass('dn')
+        }
+        var random=Math.floor(Math.random()*10-5);
+        $('.num-window div').removeClass('dn');
+        $('.num-window div').eq(random).addClass('dn');
+        var two=random-1;
+        two<0?two=0:two;
+        if(two%2==0){
+            $('.num-window div').eq(two).addClass('dn');
+            if(!$('.num-window div').eq(2).find('img').eq(0).hasClass('dn')){
+            $('.num-window div').eq(2).addClass('dn')
+        }
+        }
+
+    },100)
+}
+function startTimer(){
+    for(var i=0;i<$('.num-window div').length;i++){
+        timer.push(change(i));
+        timer.push(change(i));
+        timer.push(change(i));
+        timer.push(change(i));
+        timer.push(change(i));
+    }
+    timer.push(hide());
+}
+function closeTimer(){
+    for(var i=0;i<timer.length;i++){
+        clearInterval(timer[i]);
+    }
+}
+$(function(){
+    startTimer();
+})
+
+
+</script>
+
+
+</head>
+<body>
+<div class="calc box">
+    <p class="title">您的牙科报价预算</p>
+    <div class="num_frame">
+        <div class="num_frame_inner box">
+            <div class="num-window clearfix">
+                    <div >
+                        <img src="img/zxbj_n0.png" alt="" >
+                        <img src="img/zxbj_n1.png" alt="" class="dn">
+                        <img src="img/zxbj_n2.png" alt="" class="dn">
+                        <img src="img/zxbj_n3.png" alt="" class="dn">
+                        <img src="img/zxbj_n4.png" alt="" class="dn">
+                        <img src="img/zxbj_n5.png" alt="" class="dn">
+                        <img src="img/zxbj_n6.png" alt="" class="dn">
+                        <img src="img/zxbj_n7.png" alt="" class="dn">
+                        <img src="img/zxbj_n8.png" alt="" class="dn">
+                        <img src="img/zxbj_n9.png" alt="" class="dn">
+                    </div>
+                   <div>
+                        <img src="img/zxbj_n0.png" alt="" >
+                        <img src="img/zxbj_n1.png" alt="" class="dn">
+                        <img src="img/zxbj_n2.png" alt="" class="dn">
+                        <img src="img/zxbj_n3.png" alt="" class="dn">
+                        <img src="img/zxbj_n4.png" alt="" class="dn">
+                        <img src="img/zxbj_n5.png" alt="" class="dn">
+                        <img src="img/zxbj_n6.png" alt="" class="dn">
+                        <img src="img/zxbj_n7.png" alt="" class="dn">
+                        <img src="img/zxbj_n8.png" alt="" class="dn">
+                        <img src="img/zxbj_n9.png" alt="" class="dn">
+                    </div>
+                    <div>
+                        <img src="img/zxbj_n0.png" alt="" >
+                        <img src="img/zxbj_n1.png" alt="" class="dn">
+                        <img src="img/zxbj_n2.png" alt="" class="dn">
+                        <img src="img/zxbj_n3.png" alt="" class="dn">
+                        <img src="img/zxbj_n4.png" alt="" class="dn">
+                        <img src="img/zxbj_n5.png" alt="" class="dn">
+                        <img src="img/zxbj_n6.png" alt="" class="dn">
+                        <img src="img/zxbj_n7.png" alt="" class="dn">
+                        <img src="img/zxbj_n8.png" alt="" class="dn">
+                        <img src="img/zxbj_n9.png" alt="" class="dn">
+                    </div>
+                   <div >
+                        <img src="img/zxbj_n0.png" alt="" >
+                        <img src="img/zxbj_n1.png" alt="" class="dn">
+                        <img src="img/zxbj_n2.png" alt="" class="dn">
+                        <img src="img/zxbj_n3.png" alt="" class="dn">
+                        <img src="img/zxbj_n4.png" alt="" class="dn">
+                        <img src="img/zxbj_n5.png" alt="" class="dn">
+                        <img src="img/zxbj_n6.png" alt="" class="dn">
+                        <img src="img/zxbj_n7.png" alt="" class="dn">
+                        <img src="img/zxbj_n8.png" alt="" class="dn">
+                        <img src="img/zxbj_n9.png" alt="" class="dn">
+                    </div>
+                   <div >
+                        <img src="img/zxbj_n0.png" alt="" >
+                        <img src="img/zxbj_n1.png" alt="" class="dn">
+                        <img src="img/zxbj_n2.png" alt="" class="dn">
+                        <img src="img/zxbj_n3.png" alt="" class="dn">
+                        <img src="img/zxbj_n4.png" alt="" class="dn">
+                        <img src="img/zxbj_n5.png" alt="" class="dn">
+                        <img src="img/zxbj_n6.png" alt="" class="dn">
+                        <img src="img/zxbj_n7.png" alt="" class="dn">
+                        <img src="img/zxbj_n8.png" alt="" class="dn">
+                        <img src="img/zxbj_n9.png" alt="" class="dn">
+                    </div>
+                    <div >
+                        <img src="img/zxbj_n0.png" alt="" >
+                        <img src="img/zxbj_n1.png" alt="" class="dn">
+                        <img src="img/zxbj_n2.png" alt="" class="dn">
+                        <img src="img/zxbj_n3.png" alt="" class="dn">
+                        <img src="img/zxbj_n4.png" alt="" class="dn">
+                        <img src="img/zxbj_n5.png" alt="" class="dn">
+                        <img src="img/zxbj_n6.png" alt="" class="dn">
+                        <img src="img/zxbj_n7.png" alt="" class="dn">
+                        <img src="img/zxbj_n8.png" alt="" class="dn">
+                        <img src="img/zxbj_n9.png" alt="" class="dn">
+                    </div>
+                </div>
+        </div>
+        <div class="unit">元</div>
+    </div>
+    <div class="result">
+        <ul>
+            <li>
+                <span><em>诊疗费：</em>？元</span>
+                <span><em>检查费：</em>？元</span>
+            </li>
+            <li>
+                <span><em>医药费：</em>？元</span>
+                <span><em>材料费：</em>？元</span>
+            </li>
+        </ul>
+    </div>
+    <select class="input box"></select>
+    <select class="input box"></select>
+    <textarea class="input box" style="height:100px;line-height: 20px;padding:5px;" placeholder="请详细描述您的问题..."></textarea>
+    <input class="input box" type="text" placeholder="请输入您的姓名" />
+    <input class="input box" type="text" placeholder="输入号码，报价结果将发送到您的手机" />
+    <input type="button" value="立即计算" class="submit" onclick="closeTimer();"/>
+
+</div>
+</body>
+</html>

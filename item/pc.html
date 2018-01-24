@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style type="text/css">
+@charset "utf-8";
+/*reset-css*/
+blockquote,body,button,ul,ol,dl,dd,fieldset,form,h1,h2,h3,h4,h5,h6,hr,input,legend,p,pre,textarea,th,td,iframe{margin:0;padding:0;}
+body,button,input,select,textarea{font:12px tahoma,arial,"Hiragino Sans GB","宋体",sans-serif;}
+a{color:#333;text-decoration:none;}
+address,cite,dfn,em,i,var{font-style:normal;}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}
+fieldset,img,input,iframe{border:none;}
+input:-webkit-autofill{-webkit-box-shadow:0 0 0 50px white inset!important;}
+select,textarea,input{outline:none;}
+img[src=""],img:not([src]){opacity:0;filter:alpha(opacity=0);}
+table{border-collapse:collapse;}
+li{list-style-type:none;}
+textarea{resize: none;}
+/*sprite-css*/
+.bn{border:none !important;}
+.b1d{border:1px solid #ddd;}
+.bt0{border-top:none !important;}
+.br0{border-right:none !important;}
+.bb0{border-bottom:none !important;}
+.bl0{border-left:none !important;}
+.box{box-sizing:border-box !important;-webkit-box-sizing:border-box !important;-moz-box-sizing:border-box !important;}
+.center{margin:0 auto;}
+.clearfix:after{clear:both;content:"";display:table;}
+.db{display:block;}
+.dn{display: none;}
+.di{display:inline;}
+.dib{display:inline-block;}
+.fl{float:left;}
+.fr{float:right;}
+.h_auto{height:auto;}
+.h_50{height:50%;}
+.h_100{height:100%;}
+.mb0{margin-bottom:0;}
+.ml0{margin-left:0 !important;}
+.mr0{margin-right:0 !important;}
+.mt0{margin-top:0 !important;}
+.oh{overflow: hidden;}
+.pb0{padding-bottom:0 !important;}
+.pl0{padding-left:0 !important;}
+.pr{position:relative;}
+.tl{text-align:left;}
+.tc{text-align:center;}
+.tr{text-align:right;}
+.vh{visibility:hidden;}
+.vt{vertical-align:top;}
+.w_auto{width:auto !important;}
+.w_50{width:50%;}
+.w_100{width:100%;}
+.loading{position:absolute;width:100%;height:100%;background:#fff url(../../admin/images/loading.gif) center center no-repeat;z-index:999;}
+textarea::-webkit-input-placeholder,input::-webkit-input-placeholder {
+    color: #999;
+}
+textarea:-ms-input-placeholder,input:-ms-input-placeholder {
+    color: #999;
+}
+textarea:-moz-placeholder,input:-moz-placeholder {
+    color: #999;
+}
+textarea::-moz-placeholder,input::-moz-placeholder {
+    color: #999;
+}
+@keyframes scale-three2 {
+    0% {
+    transform: scale(1);
+    opacity: .8;
+}
+
+
+    100% {
+    transform: scale(1.28);
+    opacity: 0;
+}
+}
+.big_window{
+    width:1000px;
+}
+.content_l,.content_r{float:left;width:50%;padding-bottom:8px;}
+.content_l{border-right:1px solid #ddd;position: relative;}
+.column_wrap {
+    height: 46px;
+    line-height: 46px;
+    font-size: 0;
+}
+.column_name {
+    display: inline-block;
+    width:106px;
+    font-size: 15px;
+    color: #333;
+    text-align: right;
+}
+.column_val {
+    width: 30%;
+    height: 30px;
+    line-height: 28px;
+    border: 1px solid #ddd;
+    font-size: 15px;
+    padding-left: 3px;
+    vertical-align: top;
+    margin-top: 8px;
+    color: #000;
+}
+.required {
+    font-size: 15px;
+    color: red;
+    padding: 0 10px;
+}
+.pl1{padding-left:1%;}
+.ml1{margin-left:1%;}
+.total_title{font-size:20px;color:#000;margin:8px 0 0 34px;line-height: 30px;}
+.total_title_inner{color:#ff6c1a;font-size:12px;padding-left:30px;}
+.total_price{font-size:20px;color:#000;line-height: 80px;text-align:center;}
+.total_price_inner{color:#ff6c1a;padding:0 10px;display:inline-block;width:75px;text-align: left;}
+.total_price_r{font-size:12px;}
+.all_wrap{padding:20px 0;border:1px solid #ddd;width: 64%;margin-left: 24.5%;}
+.all_price{font-size:15px;color:#333;line-height: 30px;text-align:center;}
+.all_price_inner{color:#000;padding:0 10px;font-weight: bold;display: inline-block;width:60px;text-align: left;}
+.all_price_r{font-size:12px;}
+.total_title_r{padding:0 4px;}
+.calc{position: absolute;right:0;top:50%;width:150px;height:150px;margin:-75px -75px 0 0;border-radius: 80px;border:1px solid #ddd;background-color: #fff;}
+.calc_inner_font{color:#fff;font-size:20px;text-align: center;}
+.calc_wrap{position: absolute;top:50%;right:0;width:126px;height:126px;margin:-63px -63px 0 0;-webkit-border-radius: 50%;
+    border-radius: 50%;
+    background: #fdcc9a;
+    z-index: 12;
+    -webkit-animation: scale-three2 1.5s ease infinite;
+    -moz-animation: scale-three2 1.5s ease infinite;
+    -o-animation: scale-three2 1.5s ease infinite;
+    animation: scale-three2 1.5s ease infinite;
+    animation-fill-mode: both;}
+.calc:after{
+    position: absolute;
+    top:45px;
+    right:-12px;
+    content:'';
+    width:20px;
+    height: 60px;
+    background: #fff;
+}
+.calc:before{
+    position: absolute;
+    top:45px;
+    left:-12px;
+    content:'';
+    width:20px;
+    height: 60px;
+    background: #fff;
+}
+.calc_inner{position:absolute;top:50%;right:0;margin:-51px -51px 0 0;width:102px;height:102px;border-radius: 51px;background-color: #ff6e15;z-index: 99;}
+.textarea_wrap{font-size: 0;}
+.textarea_name{vertical-align: top;line-height: 46px;color:#333;text-align: right;}
+.textarea{border:1px solid #ddd;overflow-y: auto;resize: none;font-size: 15px;color:#000;padding:3px;height:100px;width:61%;}
+</style>
+<script src="https://cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript">
+//弹窗
+function openWindows(title,id){
+    popup=layer.open({
+        title: title,
+        type: 1,
+        area: ["auto","auto"],
+        content: $(id),
+        shade: [0.001, '#f9f9f9'],
+        shadeClose:true
+    });
+}
+function change(i,selector,num){
+        var time=500+i*200
+        return setInterval(function(){
+            var str=num[i]
+            $(selector).text(str);
+        },time)
+    }
+function closeTimer(){
+    for(var i=0;i<timer.length;i++){
+        clearInterval(timer[i]);
+    }
+}
+function startTimer(){
+    for(var i=0;i<mod1.length;i++){
+        timer.push(change(i,".total_price_inner",mod0));
+        timer.push(change(i,".change_1",mod1));
+        timer.push(change(i,".change_2",mod2));
+        timer.push(change(i,".change_3",mod3));
+        timer.push(change(i,".change_4",mod4));
+    }
+}
+var mod0=[174325,46511,31857,844661];
+var mod1=[45111,8554,874562,89568];
+var mod2=[874562,46511,31857,94661];
+var mod3=[174325,36511,65857,844661];
+var mod4=[31857,46511,5857,844661];
+var timer=[];
+$(function(){
+    //openWindows("询价",'#tooth');
+    startTimer();
+})
+</script>
+<body>
+<div class="big_window" id="tooth">
+    <div class="content_l box">
+        <div class="total_title">牙科报价计算器<span class="total_title_inner">今天已有<span class="total_title_r">1000</span>位客户获得了预算</span></div>
+        <div class="column_wrap"><span class="column_name"><span class="required">*</span>所在城市：</span><select class="column_val box"></select><select class="column_val ml1 box"></select></div>
+        <div class="column_wrap"><span class="column_name"><span class="required">*</span>服务项目：</span><select class="column_val box"><option>请选择</option></select></div>
+        <div class="textarea_wrap"><span class="textarea_name column_name"><span class="required">*</span>问题描述：</span><textarea class="textarea box" placeholder="请详细描述您的问题..."></textarea></div>
+        <div class="column_wrap"><span class="column_name"><span class="required">*</span>姓名：</span><input type="text" class="column_val box" placeholder="请输入姓名"/></div>
+        <div class="column_wrap"><span class="column_name"><span class="required">*</span>手机号码：</span><input type="text" class="column_val box" placeholder="结果将发送到此手机"/></div>
+        <div class="calc"></div>
+        <div class="calc_wrap"></div>
+        <div class="calc_inner" onclick='closeTimer();'>
+            <div class="calc_inner_font" style="margin-top:28px;">开始</div>
+            <div class="calc_inner_font">计算</div>
+        </div>
+    </div>
+    <div class="content_r">
+        <div class="total_price">您的牙科报价预算<span class="total_price_inner">174325</span><span class="total_price_r">元</span></div>
+        <div class="all_wrap">
+            <div class="all_price">诊疗费:<span class="all_price_inner change_1">174325</span><span class="all_price_r">元</span></div>
+            <div class="all_price">检查费:<span class="all_price_inner change_2">174325</span><span class="all_price_r">元</span></div>
+            <div class="all_price">医药费:<span class="all_price_inner change_3">174325</span><span class="all_price_r">元</span></div>
+            <div class="all_price">材料费:<span class="all_price_inner change_4">174325</span><span class="all_price_r">元</span></div>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>

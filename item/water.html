@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+</head>
+<style type="text/css">
+/*reset-phone-css*/
+blockquote,body,button,ul,ol,dl,dd,fieldset,form,h1,h2,h3,h4,h5,h6,hr,input,legend,p,pre,textarea,th,td{
+    margin:0;
+    padding:0;
+}
+article,aside,dialog,footer,header,hgroup,main,section,nav,figure,menu,details,figcaption, figure,{
+    display:block;
+}
+html{
+    font-size:625%;
+}
+body, button, input, select, textarea {
+    font:.12rem "Microsoft YaHei",Arial,sans-serif;
+}
+body{
+    min-width: 3.2rem;
+    width:100%;
+    max-width: 6.4rem;
+    margin:0 auto;
+    color:#333;
+}
+a{
+    color:#333;
+    text-decoration:none;
+}
+address, cite, dfn, em,i,var{
+    font-style:normal;
+}
+h1,h2,h3,h4,h5,h6{
+    font-size:100%;
+    font-weight:normal;
+}
+fieldset,img,input{
+    border:none;
+}
+img[src=""],img:not([src]){
+    opacity:0;
+    filter:alpha(opacity=0);
+}
+input:-webkit-autofill{-webkit-box-shadow:0 0 0 50px white inset!important;}
+input:focus,select:focus{
+    box-shadow: none;
+    outline:none;
+}
+input[type="button"]{
+    appearance:none;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+}
+table{
+    border-collapse:collapse;
+}
+li{
+    list-style-type:none;
+}
+/*sprite-css*/
+.bn{border:none !important;}
+.box{box-sizing:border-box !important;-webkit-box-sizing:border-box !important;-moz-box-sizing:border-box !important;}
+.center{margin:0 auto;}
+.clearfix:after{clear:both;content:"";display:table;}
+.db{display:block;}
+.dn{display: none;}
+.di{display:inline;}
+.dib{display:inline-block;}
+.fl{float:left;}
+.fr{float:right;}
+.h_auto{height:auto;}
+.h_50{height:50%;}
+.h_100{height:100%;}
+.mb0{margin-bottom:0;}
+.ml0{margin-left:0 !important;}
+.mr0{margin-right:0 !important;}
+.mt0{margin-top:0 !important;}
+.pb0{padding-bottom:0 !important;}
+.pl0{padding-left:0 !important;}
+.pr{position:relative;}
+.tl{text-align:left;}
+.tc{text-align:center;}
+.tr{text-align:right;}
+.vh{visibility:hidden;}
+.vt{vertical-align:top;}
+.w_auto{width:auto;}
+.w_50{width:50%;}
+.w_100{width:100%;}
+.container,.center{width:100%;height:200px;position: relative;overflow: hidden;}
+.down,.up{width:100px;height:100px;position: absolute;top:0;}
+.down{z-index:-3;}
+.up{z-index:10;}
+</style>
+<body>
+<div class="container">
+    <img src="img/test.jpg" class="down" id="down">
+    <img src="img/center.png" class="center" id="center">
+    <div class="up" id="up"></div>
+</div>
+<input type="button" value="保存" onclick="draw();" style="width:100px;height:40px;color:#fff;background-color:red;"/>
+<img src="" id="new">
+<script type="text/javascript">
+  // 获取节点
+  var block = document.getElementById("up");
+  var down = document.getElementById("down");
+  var oW,oH;
+  // 绑定touchstart事件
+  block.addEventListener("touchstart", function(e) {
+   console.log(e);
+   var touches = e.touches[0];
+   oW = touches.clientX - block.offsetLeft;
+   oH = touches.clientY - block.offsetTop;
+   //阻止页面的滑动默认事件
+   document.addEventListener("touchmove",defaultEvent,false);
+  },false)
+
+  block.addEventListener("touchmove", function(e) {
+   var touches = e.touches[0];
+   var oLeft = touches.clientX - oW;
+   var oTop = touches.clientY - oH;
+   if(oLeft < 0) {
+    oLeft = 0;
+   }else if(oLeft > document.documentElement.clientWidth - block.offsetWidth) {
+    oLeft = (document.documentElement.clientWidth - block.offsetWidth);
+   }
+   block.style.left = oLeft + "px";
+   block.style.top = oTop + "px";
+   down.style.left=oLeft + "px";
+   down.style.top = oTop + "px";
+  },false);
+
+  block.addEventListener("touchend",function() {
+   document.removeEventListener("touchmove",defaultEvent,false);
+  },false);
+  function defaultEvent(e) {
+   e.preventDefault();
+  }
+
+function draw(){
+    var w=$('body').width();
+    var canva=document.createElement('canvas');
+        canva.width=w;
+        canva.height=200;
+    var down=document.getElementById('down');
+    var center=document.getElementById('center');
+    var newImg=document.getElementById('new');
+    canvas=canva.getContext("2d");
+
+    canvas.clearRect(0,0,w,200);
+    var t=$('#down').position().top;
+    var l=$('#down').position().left;
+    canvas.drawImage(down,l,t,100,100);
+    canvas.drawImage(center,0,0,w,200);
+    newImg.src=canva.toDataURL("image/png");
+}
+</script>
+</body>
+</html>
